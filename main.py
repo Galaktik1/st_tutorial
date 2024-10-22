@@ -30,7 +30,10 @@ missed_values = missed_values[missed_values>0]
 
 if len(missed_values) > 0:
     fig, ax = plt.subplots()
-    sns.barplot(x=missed_values.index, y=missed_values.values)
+    sns.barplot(y=missed_values.index, x=missed_values.values, ax=ax)
+    ax.set_ylabel('')
+    #plt.xticks(rotation=45, fontsize = 6)  # Поворот подписей оси Х на 45 градусов
+    plt.tight_layout()   # Эта команда помогает избежать обрезки подписей
     ax.set_title('Пропуски в столбцах')
     st.pyplot(fig)
 else:
